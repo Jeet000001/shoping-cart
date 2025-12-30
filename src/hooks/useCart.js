@@ -23,7 +23,7 @@ const useCart = () => {
   // Sync accross the tabs
   useEffect(() => {
     const handelStorage = (e) => {
-      if(e.ket === "cart"){
+      if(e.key === "cart"){
         try {
           const newCart = JSON.parse(e.newValue || "[]")
           setCart(newCart)
