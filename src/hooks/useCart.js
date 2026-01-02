@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 const useCart = () => {
   // get cart data form localStorage
@@ -64,6 +64,17 @@ const useCart = () => {
       )
     );
   };
+
+  const total = useMemo(() => {
+    return Number(
+      cart
+        .reduce((sum, item) => {
+          const itemTotal = item.price * (item.quantity || 0);
+          return sum + itemTotal;
+        }, 0)
+        .toFixed(2)
+    );
+  }, [cart]);
 
   
 };
