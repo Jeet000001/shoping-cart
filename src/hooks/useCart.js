@@ -49,6 +49,12 @@ const useCart = () => {
       return[...currentCart, {...product, quantity : 1}]
     });
   };
+
+  const removeFromCart = (productId) => {
+    setCart(currentCart => currentCart.filter(item => item.id !== productId))
+  }
+  
+
 };
 
 export default useCart;
