@@ -46,15 +46,26 @@ const useCart = () => {
             : item
         );
       }
-      return[...currentCart, {...product, quantity : 1}]
+      return [...currentCart, { ...product, quantity: 1 }];
     });
   };
 
   const removeFromCart = (productId) => {
-    setCart(currentCart => currentCart.filter(item => item.id !== productId))
-  }
-  
+    setCart((currentCart) =>
+      currentCart.filter((item) => item.id !== productId)
+    );
+  };
 
+  const updateQuantity = (productId, quantity) => {
+    if (quantity < 1) return;
+    setCart((currentCart) =>
+      currentCart.map((item) =>
+        item.id === productId ? { ...item, quantity } : item
+      )
+    );
+  };
+
+  
 };
 
 export default useCart;
