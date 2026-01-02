@@ -36,13 +36,13 @@ const useCart = () => {
     return () => window.removeEventListener("storage", handelStorage);
   }, []);
 
-  const addToCart = (previous) => {
+  const addToCart = (product) => {
     setCart((currentCart) => {
-      const existingItem = currentCart.find((item) => itemid === product.id);
+      const existingItem = currentCart.find((item) => item.id === product.id);
       if (existingItem) {
         return currentCart.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: (item.quantity || 0) + 1 }
             : item
         );
       }
