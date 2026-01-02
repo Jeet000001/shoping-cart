@@ -76,7 +76,13 @@ const useCart = () => {
     );
   }, [cart]);
 
-  
+  return {
+    cart,
+    addToCart,
+    removeFromCart,
+    updateQuantity,
+    total,
+  };
 };
 
 export default useCart;
