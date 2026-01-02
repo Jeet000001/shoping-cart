@@ -32,7 +32,7 @@ const useCart = () => {
         }
       }
     };
-    window.addEventListener("Storage", handelStorage);
+    window.addEventListener("storage", handelStorage);
     return () => window.removeEventListener("storage", handelStorage);
   }, []);
 };
