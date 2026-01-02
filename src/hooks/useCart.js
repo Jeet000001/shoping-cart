@@ -23,19 +23,18 @@ const useCart = () => {
   // Sync accross the tabs
   useEffect(() => {
     const handelStorage = (e) => {
-      if(e.key === "cart"){
+      if (e.key === "cart") {
         try {
-          const newCart = JSON.parse(e.newValue || "[]")
-          setCart(newCart)
+          const newCart = JSON.parse(e.newValue || "[]");
+          setCart(newCart);
         } catch (error) {
-          console.error("Faild to parse cart from localStorage.", error)
+          console.error("Faild to parse cart from localStorage.", error);
         }
       }
-    }
-    window.addEventListener("Storage", handelStorage)
-    return () => window.removeEventListener("storage", handelStorage)
-  }, [])
-
+    };
+    window.addEventListener("Storage", handelStorage);
+    return () => window.removeEventListener("storage", handelStorage);
+  }, []);
 };
 
 export default useCart;
